@@ -1,4 +1,4 @@
-"""Wrapper around xlstm mLSTM blocks with TiRex-specific tweaks."""
+"""Wrapper around xlstm mLSTM blocks with XLSTMForecaster-specific tweaks."""
 
 # From xlstm large
 from dataclasses import dataclass

@@ -1,4 +1,4 @@
-"""Patch-based tokenization utilities for TiRex models."""
+"""Patch-based tokenization utilities for XLSTMForecaster models."""
 
 import torch
 from torch import nn

@@ -12,7 +12,7 @@ class ForecastAgent:
     """
     ForecastAgent 1.0: Zero-shot time series forecasting agent SDK.
     Provides a simple Pythonic API to load models (locally or from Hugging Face)
-    and perform inference using the TiRex-2 backend.
+    and perform inference using the ForecastAgent backbone.
     """
     def __init__(self, model_wrapper: Any, device: str = "cpu"):
         self.model = model_wrapper
@@ -109,7 +109,7 @@ class ForecastAgent:
             future_covariates=fut_cov_tensor
         )
 
-        # Execute forecasting on the TiRex-2 backend
+        # Execute forecasting on the ForecastAgent backbone
         # Returns shape: (n_targets=1, n_quantiles=9, prediction_length)
         forecast = self.model.forecast(
             [ts],

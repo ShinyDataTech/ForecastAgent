@@ -1,4 +1,4 @@
-"""High-level forecasting API wrapping a :class:`TiRex2` backbone."""
+"""High-level forecasting API wrapping a :class:`XLSTMForecaster` backbone."""
 
 import logging
 import time
@@ -223,7 +223,7 @@ def _gen_forecast(
     return_inference_time=False,
     **predict_kwargs,
 ):
-    """Batch the timeseries, run :meth:`TiRex2.predict`, and accumulate or stream the formatted output.
+    """Batch the timeseries, run :meth:`XLSTMForecaster.predict`, and accumulate or stream the formatted output.
 
     The batch size is reduced automatically on CUDA out-of-memory errors and
     reset for each call; see :func:`_predict_adaptive`.
@@ -269,18 +269,18 @@ def _gen_forecast(
 
 
 class ForecastModel:
-    """High-level, batched forecasting interface around a :class:`TiRex2` backbone.
+    """High-level, batched forecasting interface around a :class:`XLSTMForecaster` backbone.
 
     The wrapper takes ownership of the model only as a delegate: it batches the
-    :class:`~tirex.model.types.TimeseriesType` it is given (building them from a GluonTS
-    dataset in :meth:`forecast_gluon`), feeds them to :meth:`TiRex2.predict`, and formats the
+    :class:`~xlstm_forecaster.model.types.TimeseriesType` it is given (building them from a GluonTS
+    dataset in :meth:`forecast_gluon`), feeds them to :meth:`XLSTMForecaster.predict`, and formats the
     per-series quantile forecasts into the requested output type. Attribute access falls
     through to the wrapped model, so the backbone's own methods (e.g. ``predict``) remain
     reachable on the wrapper.
 
     Parameters
     ----------
-    model : TiRex2
+    model : XLSTMForecaster
         An instantiated, ready-for-inference backbone exposing
         ``predict(timeseries: list[TimeseriesType], prediction_length: int) -> list[Tensor]``
         and a ``quantiles`` buffer holding the quantile levels it forecasts.
@@ -312,7 +312,7 @@ class ForecastModel:
     ):
         """Forecast a list of :class:`TimeseriesType`, each carrying a target and optional covariates.
 
-        Extra ``predict_kwargs`` are forwarded verbatim to :meth:`TiRex2.predict`.
+        Extra ``predict_kwargs`` are forwarded verbatim to :meth:`XLSTMForecaster.predict`.
         In particular ``tta_sign_flip`` controls sign-flip test-time augmentation
         (roughly doubles inference cost), and ``tta_diff`` controls postprocessor
         differencing; when omitted, the checkpoint's configured defaults
@@ -349,7 +349,7 @@ class ForecastModel:
         forecast retaining the variate axis, so a multivariate dataset is scored jointly rather
         than channel-by-channel. The flag only affects ``output_type="gluonts"`` formatting.
 
-        Extra ``predict_kwargs`` are forwarded verbatim to :meth:`TiRex2.predict`.
+        Extra ``predict_kwargs`` are forwarded verbatim to :meth:`XLSTMForecaster.predict`.
         In particular ``tta_sign_flip`` controls sign-flip test-time augmentation
         (roughly doubles inference cost), and ``tta_diff`` controls postprocessor
         differencing; when omitted, the checkpoint's configured defaults

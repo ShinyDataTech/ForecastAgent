@@ -102,7 +102,7 @@ class Demo:
         series = level + weekly + spike_abs * promo + rng.normal(0, 2.5, n_steps)
 
         return cls(
-            title="TiRex-2 on a non-stationary series (continuous driver + promotion flag)",
+            title="XLSTMForecaster on a non-stationary series (continuous driver + promotion flag)",
             description="A continuous covariate sets the wandering level, while a binary flag adds spikes. The model model needs both covariates for solid forecasts.",
             target_context=series[:context_length].astype(np.float32),
             target_future=series[context_length:].astype(np.float32),
@@ -134,7 +134,7 @@ class Demo:
         series = series * (1.0 + 0.012 * rng.normal(size=context_length + horizon))  # low noise
 
         return cls(
-            title="TiRex-2 with a future-known covariate (holiday calendar)",
+            title="XLSTMForecaster with a future-known covariate (holiday calendar)",
             description="Daily demand with known holidays. As they are irregular, they are unpredictable from history alone.",
             target_context=series[:context_length].astype(np.float32),
             target_future=series[context_length:].astype(np.float32),
@@ -225,8 +225,8 @@ def _plot_demo_forecast_matplotlib(
 
     axes = axes.flatten()
     ax_uv, ax_mv, *ax_covs = axes
-    ax_uv.set_ylabel("TiRex-2 Univariate")
-    ax_mv.set_ylabel("TiRex-2 Multivariate")
+    ax_uv.set_ylabel("XLSTMForecaster Univariate")
+    ax_mv.set_ylabel("XLSTMForecaster Multivariate")
 
     # univariate forecast
     plot_forecast(
@@ -288,7 +288,7 @@ def _plot_demo_forecast_plotly(
         shared_xaxes=True,
         vertical_spacing=0.05,
         row_heights=[0.35, 0.35] + covariate_heights,
-        row_titles=["TiRex-2 Univariate", "TiRex-2 Multivariate"] + covariate_labels,
+        row_titles=["XLSTMForecaster Univariate", "XLSTMForecaster Multivariate"] + covariate_labels,
     )
 
     plot_forecast(

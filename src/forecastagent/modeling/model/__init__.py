@@ -1,4 +1,4 @@
-from .tirex2 import TiRex2
+from .xlstm_forecaster import XLSTMForecaster
 from .types import TimeseriesType
 
-__all__ = ["TimeseriesType", "TiRex2"]
+__all__ = ["TimeseriesType", "XLSTMForecaster"]

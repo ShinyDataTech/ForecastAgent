@@ -31,16 +31,16 @@ COVARIATE_COLORS = [
 def _raise_matplotlib_installation_error(e):
     raise ImportError(
         "'_plot_forecast_matplotlib' requires matplotlib to be installed. "
-        "Please install TiRex package with plotting support via "
-        "\"pip install 'tirex-2[plotting]'\"."
+        "Please install XLSTMForecaster package with plotting support via "
+        "\"pip install 'xlstm_forecaster[plotting]'\"."
     ) from e
 
 
 def _raise_plotly_installation_error(e):
     raise ImportError(
         "'_plot_forecast_plotly' requires plotly to be installed. "
-        "Please install TiRex package with plotting support via "
-        "\"pip install 'tirex-2[plotting]'\"."
+        "Please install XLSTMForecaster package with plotting support via "
+        "\"pip install 'xlstm_forecaster[plotting]'\"."
     ) from e
 
 

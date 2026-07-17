@@ -1,4 +1,4 @@
-"""Residual MLP building blocks used across TiRex modules."""
+"""Residual MLP building blocks used across XLSTMForecaster modules."""
 
 import torch
 from torch import nn

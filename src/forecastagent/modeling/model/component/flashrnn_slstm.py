@@ -27,7 +27,7 @@ from .xlstm_mixed_config import xLSTMMixedConfig
 
 @dataclass
 class FlashRNNLayerConfig(FlashRNNConfig):
-    """Configuration for FlashRNN-based sLSTM layers used inside TiRex."""
+    """Configuration for FlashRNN-based sLSTM layers used inside XLSTMForecaster."""
 
     embedding_dim: int = -1
     num_heads: int = 4  # this must divide the embedding_dim
@@ -48,7 +48,7 @@ class FlashRNNLayerConfig(FlashRNNConfig):
 
 
 class _FlashRNNLayer(nn.Module, ABC):
-    """Abstract base class bridging FlashRNN kernels with TiRex expectations."""
+    """Abstract base class bridging FlashRNN kernels with XLSTMForecaster expectations."""
 
     config_class = FlashRNNLayerConfig
 

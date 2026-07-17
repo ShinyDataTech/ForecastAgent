@@ -26,7 +26,7 @@ logger = logging.getLogger(__file__)
 
 
 def _normalize_device(device: str) -> Device:
-    """Normalize the public runtime device selector used by TiRex2."""
+    """Normalize the public runtime device selector used by XLSTMForecaster."""
     if device not in ("cpu", "cuda"):
         raise ValueError(f"device must be 'cpu' or 'cuda', got {device!r}.")
     return device
@@ -116,7 +116,7 @@ class MultivariateStackConfig:
         return cls(templates=templates, recipe=list(config["recipe"]))
 
 
-class TiRex2(nn.Module):
+class XLSTMForecaster(nn.Module):
     def __init__(
         self,
         stack_config: dict,

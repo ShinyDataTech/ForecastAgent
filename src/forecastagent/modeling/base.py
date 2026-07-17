@@ -1,4 +1,4 @@
-"""Loading utilities for inference-ready :class:`TiRex2` checkpoints."""
+"""Loading utilities for inference-ready :class:`XLSTMForecaster` checkpoints."""
 
 from pathlib import Path
 from typing import Any
@@ -8,7 +8,7 @@ import yaml
 from huggingface_hub import snapshot_download
 
 from .api_adapter import ForecastModel
-from .model import TiRex2
+from .model import XLSTMForecaster
 
 CONFIG_FILENAME = "model-config.yaml"
 CKPT_FILENAME = "model.ckpt"
@@ -47,12 +47,12 @@ def _looks_like_hf_repo_id(path: str) -> bool:
 
 
 def load_model(
-    ckpt_path: str | Path = "NX-AI/TiRex-2",
+    ckpt_path: str | Path = "shinydatatech/forecastagent-v1.0",
     device: str = "cuda",
     *,
     hf_kwargs: dict[str, Any] | None = None,
 ) -> ForecastModel:
-    """Load an inference-ready :class:`TiRex2` from a checkpoint directory or HF repo.
+    """Load an inference-ready :class:`XLSTMForecaster` from a checkpoint directory or HF repo.
 
     Parameters
     ----------
@@ -89,7 +89,7 @@ def load_model(
         config: dict[str, Any] = yaml.safe_load(f)
 
     config["device"] = device
-    model = TiRex2(**config)
+    model = XLSTMForecaster(**config)
 
     checkpoint = torch.load(weights_file, map_location="cpu", weights_only=True)
     state_dict = checkpoint.get("state_dict", checkpoint) if isinstance(checkpoint, dict) else checkpoint

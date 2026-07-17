@@ -40,7 +40,7 @@ def create_app(
     """
     app = FastAPI(
         title="ForecastAgent SaaS API",
-        description="Zero-Shot Time Series Forecasting Server powered by TiRex-2",
+        description="Zero-Shot Time Series Forecasting Server powered by an xLSTM foundation model",
         version="1.0.0"
     )
 
