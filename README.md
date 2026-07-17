@@ -1,6 +1,6 @@
 # ForecastAgent 1.0
 
-ForecastAgent 1.0 is a professional, production-ready Python SDK and Serving API for Zero-Shot Time Series Forecasting, powered by the **TiRex-2** xLSTM-based time series foundation model.
+ForecastAgent 1.0 is a professional, production-ready Python SDK and Serving API for Zero-Shot Time Series Forecasting, powered by an xLSTM-based time series foundation model.
 
 With ForecastAgent 1.0, you can run accurate, probabilistic time series forecasting out of the box with zero training, or deploy a self-hosted SaaS API for scalable production workloads.
 
