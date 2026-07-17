@@ -1,0 +1,15 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+streamlit>=1.30.0
+plotly>=5.18.0
+pandas>=2.0.0
+numpy>=1.24.0
+einops>=0.7.0
+xlstm>=2.0.0
+huggingface_hub
+PyYAML
+./tirex-2
+fastapi
+uvicorn[standard]
+pydantic
+torchvision

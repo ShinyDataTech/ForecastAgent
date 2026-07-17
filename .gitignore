@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Large Model Weights and Data (uploaded to Hugging Face)
+forecastagent-v1-lora/
+forecastagent-v1-lora-*/
+forecastagent-v1-standalone/
+ForecastAgent_Deployment.zip
+data/
+*.ckpt
+*.pt
+*.bin
+*.h5
+
+# Logs and outputs
+*.log
+timeseries_results.json
+metrics_summary.csv
+
+# IDEs
+.idea/
+.vscode/
+.DS_Store
+
+# Streamlit
+.streamlit/

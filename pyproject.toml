@@ -1,0 +1,36 @@
+[project]
+name = "forecast-agent-sdk"
+version = "1.0.0"
+description = "ForecastAgent 1.0: Zero-shot and fine-tuned time series forecasting SDK & CLI wrapper"
+authors = [
+    { name = "ShinyDataTech", email = "shinydatatech@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=1.24.0",
+    "einops>=0.7.0",
+    "xlstm>=2.0.0",
+    "huggingface_hub>=0.19.0",
+    "PyYAML>=6.0",
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.22.0",
+    "pydantic>=2.0.0",
+    "pandas>=2.0.0",
+    "plotly>=5.18.0",
+]
+
+[project.scripts]
+forecastagent-api = "forecastagent.cli:main"
+
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
