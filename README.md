@@ -91,17 +91,6 @@ forecastagent-api --model-path shinydatatech/forecastagent-v1.0 --port 8000
     }
     ```
 
----
-
-## Publishing Model & Package
-For detailed step-by-step instructions on:
-1. Publishing merged model checkpoints to Hugging Face
-2. Building distribution packages (`.whl` / `.tar.gz`)
-3. Setting up automated release pipelines via GitHub Actions
-
-Please refer to the [Implementation & Publishing Guide](docs/publishing_guide.md).
-
----
 
 ## License
 Licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE) for details.
