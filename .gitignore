@@ -37,3 +37,24 @@ metrics_summary.csv
 
 # Streamlit
 .streamlit/
+
+# Project Portal and Build Files (Excluded from SDK package)
+Dockerfile
+api_server.py
+app.py
+benchmark_pipeline.py
+dashboard/
+data_collector.py
+data_simulator.py
+dataset_builder.py
+download_model.py
+export_standalone.py
+feature_summary.md
+fine_tuning_plan.md
+implementation_plan.md
+implementation_plan_forecastagent_python_package
+requirements.txt
+test_short_train.py
+tirex-2/
+train.py
+walkthrough.md
